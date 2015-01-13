@@ -1,10 +1,10 @@
 Aihe: Bomberman peli kahdelle pelaajalle.
-Pelinkulku: Pelissä pelaajat käyttävät pommeja tuhotakseen
-seiniä ja kerätäkseen power uppeja. Tarkoituksena on saada
-vastustaja jäämään räjähdykseen.
+Pelinkulku: Pelissä molemmat pelaajat käyttävät pommeja tuhotakseen seiniä ja saadakseen toisen räjähdykseen. Seinien tuhoaminen saattaa pudottaa bonuksia, joita keräämällä hahmon nopeus kasvaa, pommeja saa enemmän kerralla tai räjähdys alue laajenee. Peli tapahtuu ruudukolla, jossa on tuhoutumattomia seiniä ja tavallisia tuhoutuvia seiniä. Alussa räjähdyksen etäisyys on 1 ja pommeja voi olla maassa kullakin pelaajalla 1 kerrallaan. Jos peli etenee kauan ilman että kumpikaan pelaaja jää räjähdykseen, pelikenttä alkaa pienetä reunoilta kohti keskustaa. Tasapeli on mahdollinen jos molemmat pelaajat jäävät samaan räjähdykseen.
+
 Käyttäjät: Pelaajat
 Toiminnot:
 *Pelin aloittaminen
 *Pisteenlasku
+*Pommien jättämäminen
 
 
