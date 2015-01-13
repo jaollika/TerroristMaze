@@ -1,1 +1,2 @@
 # TerroristMaze
+No voihan nokikana.
