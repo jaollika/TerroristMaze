@@ -24,25 +24,42 @@ public class Ohjaus implements KeyListener{
     
     @Override
     public void keyTyped(KeyEvent e) {
-        int key = e.getKeyCode();
 
-        if (key == KeyEvent.VK_LEFT) {p2.muutaNopeus(-1, 0);}
-        if (key == KeyEvent.VK_RIGHT) {p2.muutaNopeus(1, 0);}
-        if (key == KeyEvent.VK_UP) {p2.muutaNopeus(0, -1);}
-        if (key == KeyEvent.VK_DOWN) {p2.muutaNopeus(0, 1);}
-        
-        if (key == KeyEvent.VK_A) {p1.muutaNopeus(-1, 0);}
-        if (key == KeyEvent.VK_D) {p1.muutaNopeus(1, 0);}
-        if (key == KeyEvent.VK_W) {p1.muutaNopeus(0, -1);}
-        if (key == KeyEvent.VK_S) {p1.muutaNopeus(0, 1);}
-        
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
+        int key = e.getKeyCode();
+
+        if (key == KeyEvent.VK_LEFT) {p2.muutaNopeusX(-1);}
+        if (key == KeyEvent.VK_RIGHT) {p2.muutaNopeusX(1);}
+        if (key == KeyEvent.VK_UP) {p2.muutaNopeusY(-1);}
+        if (key == KeyEvent.VK_DOWN) {p2.muutaNopeusY(1);}
+        
+        if (key == KeyEvent.VK_A) {p1.muutaNopeusX(-1);}
+        if (key == KeyEvent.VK_D) {p1.muutaNopeusX(1);}
+        if (key == KeyEvent.VK_W) {p1.muutaNopeusY(-1);}
+        if (key == KeyEvent.VK_S) {p1.muutaNopeusY(1);}
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
+        int key = e.getKeyCode();
+        if (key == KeyEvent.VK_LEFT) {p2.muutaNopeusX(0);}
+        if (key == KeyEvent.VK_RIGHT) {p2.muutaNopeusX(0);}
+        if (key == KeyEvent.VK_UP) {p2.muutaNopeusY(0);}
+        if (key == KeyEvent.VK_DOWN) {p2.muutaNopeusY(0);}
+        
+        if (key == KeyEvent.VK_A) {p1.muutaNopeusX(0);}
+        if (key == KeyEvent.VK_D) {p1.muutaNopeusX(0);}
+        if (key == KeyEvent.VK_W) {p1.muutaNopeusY(0);}
+        if (key == KeyEvent.VK_S) {p1.muutaNopeusY(0);}
+        
+        if (key == KeyEvent.VK_Q) {
+            p1.jataPommi();
+        }
+        if (key == KeyEvent.VK_0) {
+            p2.jataPommi();
+        }
     }
 }

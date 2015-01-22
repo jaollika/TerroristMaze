@@ -20,7 +20,9 @@ public class Pommi implements Esine{
         this.y = ((y+5)/50);
         //pommit keskelle lahinta ruutua
         this.voima = voima;
+        System.out.println("OLEN LUOTU! " + this.x + " x " + this.y);
     }
+
     
     @Override
     public int getX() {

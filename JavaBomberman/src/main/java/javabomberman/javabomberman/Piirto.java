@@ -11,18 +11,24 @@ import javax.swing.JPanel;
  * @author jaollika@cs
  */
 public class Piirto extends JPanel {
+    private EsineInventaario inventaario;
 
-
-    Piirto(KeyListener kuuntelija) {
+    public Piirto(EsineInventaario inventaario) {
+        this.PaivitaInventaario(inventaario);
+        KeyListener kuuntelija = new Ohjaus(this.inventaario.getPelaaja(1), this.inventaario.getPelaaja(2));
         addKeyListener(kuuntelija);
         setFocusable(true);
     }
+    public void PaivitaInventaario(EsineInventaario inventaario){
+        this.inventaario = inventaario;
+    }
 
-    public void paint(Graphics g, EsineInventaario inventaario) {
+    public void paint(Graphics g) {
         super.paint(g);
         Graphics2D g2D = (Graphics2D) g;
         piirraPohja(g2D);
-        piirraSeinat(g2D, inventaario);
+        piirraSeinat(g2D, this.inventaario);
+        piirraPommit(g2D, this.inventaario);
         piirraPelaajat(g2D);
         //piirretaan seinat
 
@@ -49,22 +55,22 @@ public class Piirto extends JPanel {
         }
     }
 
-//       
-//       //luodaan pelaajat
-//       
-//       this.lista.add(new Pelaaja(75,75, 0));
-//       this.lista.add(new Pelaaja(12*50-25, 12*50-25, 1));
-//       luoSeinat();
-//       //luodaan seinat
-//       
-//    }
-
-
-    public void etene() {
+    private void piirraPelaajat(Graphics2D g2D) {
+        Pelaaja p = this.inventaario.getPelaaja(1);
+        g2D.setColor(Color.RED);
+        g2D.fillRect(p.getX(), p.getY(), 30, 30);
+        p = this.inventaario.getPelaaja(2);
+        g2D.setColor(Color.BLUE);
+        g2D.fillRect(p.getX(), p.getY(), 30, 30);
         
     }
 
-    private void piirraPelaajat(Graphics2D g2D) {
+    private void piirraPommit(Graphics2D g2D, EsineInventaario inventaario) {
+        g2D.setColor(Color.BLACK);
+        for (Esine pommi : inventaario.getPommit()) {
+            g2D.fillOval(pommi.getX()*50 +25, pommi.getY()*50 +25, 10, 10);
+            System.out.println("POMMI PIIRRETTY!");
+        }
         
     }
 }

@@ -16,10 +16,10 @@ public class Peli {
     private EsineInventaario inventaario;
     private Piirto piirto;
 
-    public Peli(){
+    public Peli() throws InterruptedException{
         this.inventaario = new EsineInventaario();
-        KeyListener kuuntelija = new Ohjaus(inventaario.getPelaaja(1), inventaario.getPelaaja(2));
-        this.piirto = new Piirto(kuuntelija);
+        this.piirto = new Piirto(this.inventaario);
+        this.piirra();
     }
 
 
@@ -28,7 +28,8 @@ public class Peli {
     }
 
     void etene() {
-        
+        inventaario.getPelaaja(1).etene();
+        inventaario.getPelaaja(2).etene();
         }
     
     public void piirra() throws InterruptedException{
@@ -39,5 +40,14 @@ public class Peli {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    
+
+    public void pommita() {
+        Pelaaja p = this.inventaario.getPelaaja(1);
+        System.out.println(p.jattaakoPommin());
+        if (p.jattaakoPommin()) {
+            p.pommiJatettu();
+            inventaario.lisaaPommi(p.getX(), p.getY(), p.getVoima());
+            System.out.println("POMMI LISATTY!");
+        }
+    }
 }

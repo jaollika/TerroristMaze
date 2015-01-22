@@ -14,11 +14,11 @@ import javax.swing.JFrame;
 public class PeliMoottori {
     public void start() throws InterruptedException{
         Peli peli = new Peli();
-        peli.piirra();
         //luodaan peli
         while(true){
             peli.paivitagrafiikka();
             peli.etene();
+            peli.pommita();
             Thread.sleep(100);
         }
         
