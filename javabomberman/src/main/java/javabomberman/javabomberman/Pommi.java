@@ -9,7 +9,7 @@ package javabomberman.javabomberman;
  *
  * @author jaollika@cs
  */
-public class Pommi implements Esine{
+public class Pommi{
     private int x;
     private int y;
     private int voima;
@@ -25,13 +25,16 @@ public class Pommi implements Esine{
         this.timer = 50;
     }
 
+    public int getVoima(){
+        return this.voima;
+    }
     
-    @Override
+
     public int getX() {
         return this.x;
     }
 
-    @Override
+
     public int getY() {
         return this.y;
     }

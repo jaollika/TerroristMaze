@@ -9,8 +9,6 @@ package javabomberman.javabomberman;
  *
  * @author jaollika@cs
  */
-public interface Esine {
-    public int getX();
-    public int getY();
+class PowerUp {
     
 }

@@ -9,7 +9,7 @@ package javabomberman.javabomberman;
  *
  * @author jaollika@cs
  */
-public class Seina implements Esine {
+public class Seina{
 
     private int sijaintiX;
     private int sijaintiY;
@@ -21,14 +21,22 @@ public class Seina implements Esine {
         this.tuhoutumassa = false;
     }
 
-    @Override
+
     public int getX() {
         return this.sijaintiX;
     }
 
-    @Override
+
     public int getY() {
         return this.sijaintiY;
+    }
+
+    public void setTuhoutuu() {
+        this.tuhoutumassa = true;
+    }
+
+    public boolean getTuhoutuu() {
+        return this.tuhoutumassa;
     }
 
 

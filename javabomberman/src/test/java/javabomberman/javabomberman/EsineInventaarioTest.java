@@ -36,7 +36,7 @@ public class EsineInventaarioTest {
 
     @Test
     public void seinatListaSisaltaaVainSeinia() {
-        for (Esine seina : this.inventaario.getSeinat()) {
+        for (Seina seina : this.inventaario.getSeinat()) {
             assertEquals(Seina.class, seina.getClass());
         }
     }

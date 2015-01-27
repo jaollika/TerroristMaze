@@ -12,7 +12,7 @@ import javax.swing.Action;
  *
  * @author jaollika@cs
  */
-public class Pelaaja implements Esine{
+public class Pelaaja{
 
     private int voima;
     private int nopeus;
@@ -35,16 +35,18 @@ public class Pelaaja implements Esine{
         this.sijaintiX = x;
         this.sijaintiY = y;
         this.nopeusX =0;
+        // -1, 0 tai 1
         this.nopeusY =0;
+        // -1, 0 tai 1
         this.jattamassaPommin = false;
     }
     
-    @Override
+
     public int getX() {
        return this.sijaintiX;
     }
 
-    @Override
+
     public int getY() {
         return this.sijaintiY;
     }
@@ -73,10 +75,26 @@ public class Pelaaja implements Esine{
         
     }
 
-    public boolean etene() {
-        this.sijaintiX = this.sijaintiX + this.nopeusX * this.nopeus;
-        this.sijaintiY = this.sijaintiY + this.nopeusY * this.nopeus;
-        return false;
+    public void etene() {
+        this.sijaintiX = this.sijaintiX + this.nopeusX;
+        this.sijaintiY = this.sijaintiY + this.nopeusY;
+    }
+    
+    public void siirra(int x, int y) {
+        this.sijaintiX = this.sijaintiX + x;
+        this.sijaintiY = this.sijaintiY + y;
+    }
+    
+    public int getNopeus(){
+        return this.nopeus;
+    }
+    
+    public int getNopeusX(){
+        return this.nopeusX;
+    }
+    
+    public int getNopeusY(){
+        return this.nopeusY;
     }
 
     public void jataPommi() {
@@ -95,8 +113,12 @@ public class Pelaaja implements Esine{
         }
     }
 
-    public void palaa() {
-        this.sijaintiX = this.sijaintiX - this.nopeusX *2;
-        this.sijaintiY = this.sijaintiY - this.nopeusY *2;
+    public void havisi() {
+        this.havinnyt = true;
     }
+    
+    public boolean getHavinnyt(){
+        return this.havinnyt;
+    }
+
 }

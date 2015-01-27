@@ -29,11 +29,11 @@ public class PelaajaTest {
 
     @Test
     public void pelaajaLiikkuu() {
-        pelaaja.etene();
         pelaaja.muutaNopeusX(1);
         pelaaja.muutaNopeusY(1);
-        assertTrue(76 == this.pelaaja.getX());
-        assertTrue(76 == this.pelaaja.getY());
+        pelaaja.etene();
+        assertTrue(80 == this.pelaaja.getX());
+        assertTrue(80 == this.pelaaja.getY());
     }
 
     @Test
@@ -41,7 +41,7 @@ public class PelaajaTest {
         pelaaja.muutaNopeusX(2);
         pelaaja.muutaNopeusX(-1);
         pelaaja.etene();
-        assertEquals(74, this.pelaaja.getX());
+        assertEquals(70, this.pelaaja.getX());
     }
 
     @Test
@@ -50,7 +50,7 @@ public class PelaajaTest {
         pelaaja.muutaNopeusY(1);
         pelaaja.etene();
         pelaaja.etene();
-        assertEquals(77, this.pelaaja.getY());
+        assertEquals(85, this.pelaaja.getY());
     }
 
     @Test
@@ -69,12 +69,9 @@ public class PelaajaTest {
     public void lisaaKaytettaviaPommejaEiAnnaYlimaaraisia(){
         pelaaja.lisaaKaytettavaPommi();
         assertEquals(1, pelaaja.getPommejaKaytossa());
-        pelaaja.jataPommi();
         pelaaja.lisaaKaytettavaPommi();
         pelaaja.lisaaKaytettavaPommi();
         assertEquals(1, pelaaja.getPommejaKaytossa());
-        pelaaja.jataPommi();
-        assertEquals(0, pelaaja.getPommejaKaytossa());
     }
     
 }

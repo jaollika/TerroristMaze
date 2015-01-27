@@ -13,16 +13,18 @@ import java.util.ArrayList;
  */
 public class EsineInventaario {
 
-    private ArrayList<Esine> seinaLista;
+    private ArrayList<Seina> seinaLista;
     private ArrayList<Pommi> pommiLista;
-    private ArrayList<Esine> powerUpLista;
+    private ArrayList<PowerUp> powerUpLista;
+    private ArrayList<Rajahdys> rajahdysLista;
     private Pelaaja pelaaja1;
     private Pelaaja pelaaja2;
 
     public EsineInventaario() {
-        this.seinaLista = new ArrayList<Esine>();
+        this.seinaLista = new ArrayList<Seina>();
         this.pommiLista = new ArrayList<Pommi>();
-        this.powerUpLista = new ArrayList<Esine>();
+        this.powerUpLista = new ArrayList<PowerUp>();
+        this.rajahdysLista = new ArrayList<Rajahdys>();
         luoSeinat();
         this.pelaaja1 = new Pelaaja(12 + 50 * 1, 12 + 50 * 1);
         this.pelaaja2 = new Pelaaja(12 + 50 * 11, 12 + 50 * 11);
@@ -44,7 +46,7 @@ public class EsineInventaario {
         }
     }
 
-    public ArrayList<Esine> getSeinat() {
+    public ArrayList<Seina> getSeinat() {
         return this.seinaLista;
     }
 
@@ -67,6 +69,23 @@ public class EsineInventaario {
 
     public void setPommilista(ArrayList<Pommi> uusiPommilista) {
         this.pommiLista = uusiPommilista;
+    }
+
+    public void luoRajahdys(int x, int y) {
+        this.rajahdysLista.add(new Rajahdys(x, y));
+        System.out.println("RAJAHDYS " + x +" " + y);
+    }
+
+    public ArrayList<Rajahdys> getRajahdykset() {
+        return this.rajahdysLista;
+    }
+
+    public void setUusiRajahdysLista(ArrayList<Rajahdys> uusiLista) {
+        this.rajahdysLista = uusiLista;
+    }
+
+    public void setUusiSeinaLista(ArrayList<Seina> uusiLista) {
+        this.seinaLista = uusiLista;
     }
     
 }

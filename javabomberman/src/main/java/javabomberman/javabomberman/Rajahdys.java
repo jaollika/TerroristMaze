@@ -5,30 +5,33 @@
  */
 package javabomberman.javabomberman;
 
-/**
- *
- * @author jaollika@cs
- */
-public class Seina implements Esine {
-
+public class Rajahdys{
     private int sijaintiX;
     private int sijaintiY;
-    private boolean tuhoutumassa;
+    private int timer;
 
-    Seina(int x, int y) {
+    public Rajahdys(int x, int y){
         this.sijaintiX = x;
         this.sijaintiY = y;
-        this.tuhoutumassa = false;
+        this.timer = 10;
     }
+    
 
-    @Override
     public int getX() {
         return this.sijaintiX;
     }
 
-    @Override
+
     public int getY() {
         return this.sijaintiY;
     }
-
+    
+    public boolean etene(){
+        this.timer = this.timer-1;
+        return this.timer <= 0;
+    }
+    
+    public int getTimer(){
+        return this.timer;
+    }
 }

@@ -11,5 +11,10 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         PeliMoottori peliMoottori = new PeliMoottori();
         peliMoottori.start();
+        
+        
+        
+        
+        
     }
 }
