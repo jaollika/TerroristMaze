@@ -15,7 +15,7 @@ public class PeliMoottori {
 
     public void start() throws InterruptedException {
         final long OPTIMAL_TIME = 1000000000 / 60;
-      
+        
         
         Peli peli = new Peli();
         //luodaan peli

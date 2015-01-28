@@ -54,7 +54,7 @@ public class Pelaaja{
     public int getPommejaKaytossa(){
         return this.pommejaKaytossa;
     }
-
+    
     public boolean getJattaakoPommin(){
         return this.jattamassaPommin;
     }
@@ -62,17 +62,26 @@ public class Pelaaja{
         return this.voima;
     }
     
+    public void setVoima(int i){
+        if(i > 0 && i <= 8){
+            this.voima = i;
+        }
+    }
+    
+    public void lisaaVoimaa(){
+        if(this.voima < 8){this.voima++;}
+    }
+    
     public void setEiJataPommia(){
         this.jattamassaPommin = false;
     }
     
-    public void muutaNopeusX(int x){
+    public void setNopeusX(int x){
         this.nopeusX = x;
     }
     
-    public void muutaNopeusY(int y){
+    public void setNopeusY(int y){
         this.nopeusY = y;
-        
     }
 
     public void etene() {
@@ -95,6 +104,14 @@ public class Pelaaja{
     
     public int getNopeusY(){
         return this.nopeusY;
+    }
+    
+    public void setPommeja(int i){
+        this.pommeja = i;
+    }
+    
+    public int getPommeja(){
+        return this.pommeja;
     }
 
     public void jataPommi() {

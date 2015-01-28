@@ -39,10 +39,10 @@
                 <version>0.30</version>
                 <configuration>
                     <targetClasses>
-                        <param>javabomberman.*</param>
+                        <param>javabomberman.javabomberman.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>javabomberman.*</param>
+                        <param>javabomberman.javabomberman.*</param>
                     </targetTests>
                 </configuration>
             </plugin>

@@ -31,29 +31,29 @@ public class Ohjaus implements KeyListener{
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
 
-        if (key == KeyEvent.VK_LEFT) {p2.muutaNopeusX(-1);}
-        if (key == KeyEvent.VK_RIGHT) {p2.muutaNopeusX(1);}
-        if (key == KeyEvent.VK_UP) {p2.muutaNopeusY(-1);}
-        if (key == KeyEvent.VK_DOWN) {p2.muutaNopeusY(1);}
+        if (key == KeyEvent.VK_LEFT) {p2.setNopeusX(-1);}
+        if (key == KeyEvent.VK_RIGHT) {p2.setNopeusX(1);}
+        if (key == KeyEvent.VK_UP) {p2.setNopeusY(-1);}
+        if (key == KeyEvent.VK_DOWN) {p2.setNopeusY(1);}
         
-        if (key == KeyEvent.VK_A) {p1.muutaNopeusX(-1);}
-        if (key == KeyEvent.VK_D) {p1.muutaNopeusX(1);}
-        if (key == KeyEvent.VK_W) {p1.muutaNopeusY(-1);}
-        if (key == KeyEvent.VK_S) {p1.muutaNopeusY(1);}
+        if (key == KeyEvent.VK_A) {p1.setNopeusX(-1);}
+        if (key == KeyEvent.VK_D) {p1.setNopeusX(1);}
+        if (key == KeyEvent.VK_W) {p1.setNopeusY(-1);}
+        if (key == KeyEvent.VK_S) {p1.setNopeusY(1);}
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
-        if (key == KeyEvent.VK_LEFT) {p2.muutaNopeusX(0);}
-        if (key == KeyEvent.VK_RIGHT) {p2.muutaNopeusX(0);}
-        if (key == KeyEvent.VK_UP) {p2.muutaNopeusY(0);}
-        if (key == KeyEvent.VK_DOWN) {p2.muutaNopeusY(0);}
+        if (key == KeyEvent.VK_LEFT) {p2.setNopeusX(0);}
+        if (key == KeyEvent.VK_RIGHT) {p2.setNopeusX(0);}
+        if (key == KeyEvent.VK_UP) {p2.setNopeusY(0);}
+        if (key == KeyEvent.VK_DOWN) {p2.setNopeusY(0);}
         
-        if (key == KeyEvent.VK_A) {p1.muutaNopeusX(0);}
-        if (key == KeyEvent.VK_D) {p1.muutaNopeusX(0);}
-        if (key == KeyEvent.VK_W) {p1.muutaNopeusY(0);}
-        if (key == KeyEvent.VK_S) {p1.muutaNopeusY(0);}
+        if (key == KeyEvent.VK_A) {p1.setNopeusX(0);}
+        if (key == KeyEvent.VK_D) {p1.setNopeusX(0);}
+        if (key == KeyEvent.VK_W) {p1.setNopeusY(0);}
+        if (key == KeyEvent.VK_S) {p1.setNopeusY(0);}
         
         if (key == KeyEvent.VK_Q) {
             p1.jataPommi();
