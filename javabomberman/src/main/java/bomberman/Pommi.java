@@ -17,8 +17,8 @@ public class Pommi{
     private int omistaja;
     
     public Pommi(int x, int y, int voima, int omistaja){
-        this.x = ((x+5)/50);
-        this.y = ((y+5)/50);
+        this.x = ((x+15)/50);
+        this.y = ((y+15)/50);
         // 13 x 13 ruudukko
         this.omistaja = omistaja;
         this.voima = voima;

@@ -22,8 +22,8 @@ public class PommiTest {
     
     @Before
     public void setUp() {
-        this.pommi1 = new Pommi(1,1,1,1);
-        this.pommi2 = new Pommi(1,1,1,2);
+        this.pommi1 = new Pommi(50,50,1,1);
+        this.pommi2 = new Pommi(50,50,1,2);
     }
 
     @Test 
@@ -39,9 +39,23 @@ public class PommiTest {
             assertEquals(i, new Pommi(1, 1, i, 1).getVoima());
         }
     }
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    
+    @Test
+    public void paikkaOikeinAlleRajan() {
+        Pommi p1 = new Pommi(45, 45, 1, 1);
+        assertEquals(1, p1.getX());
+        assertEquals(1, p1.getY());
+    }
+
+    public void paikkaOikeinYliRajan() {
+        Pommi p1 = new Pommi(55, 55, 1, 1);
+        assertEquals(1, p1.getX());
+        assertEquals(1, p1.getY());
+    }
 }
+    // TODO add test methods here.
+// The methods must be annotated with annotation @Test. For example:
+//
+// @Test
+// public void hello() {}
+
