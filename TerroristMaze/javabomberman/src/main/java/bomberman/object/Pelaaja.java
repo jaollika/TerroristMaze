@@ -141,7 +141,7 @@ public class Pelaaja{
     
     public void keraaPowerUp(PowerUpType pU){
         if(pU == PowerUpType.NOPEUS){
-            this.nopeus = this.nopeus +1;
+            this.nopeus = this.nopeus +2;
         }
         if(pU == PowerUpType.VOIMA){
             this.voima = this.voima +1;

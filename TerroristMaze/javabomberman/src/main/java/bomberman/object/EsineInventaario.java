@@ -6,6 +6,7 @@
 package bomberman.object;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -83,6 +84,13 @@ public class EsineInventaario {
 
     public void setUusiPowerUpLista(ArrayList<PowerUp> pUlista) {
         this.powerUpLista = pUlista;
+    }
+
+    public void luoUusiPU(int x, int y) {
+        Random r = new Random();
+        if(r.nextInt(10) < 4){
+            this.powerUpLista.add(new PowerUp(x,y));
+        }
     }
     
 }

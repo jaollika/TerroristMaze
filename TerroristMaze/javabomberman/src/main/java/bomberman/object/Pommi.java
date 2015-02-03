@@ -22,7 +22,7 @@ public class Pommi{
         // 13 x 13 ruudukko
         this.omistaja = omistaja;
         this.voima = voima;
-        this.timer = 50;
+        this.timer = 32;
     }
 
     public int getVoima(){

@@ -14,18 +14,18 @@ public class Seina{
     private int sijaintiX;
     private int sijaintiY;
     private boolean tuhoutumassa;
+    private int vauriopisteet;
 
     public Seina(int x, int y) {
         this.sijaintiX = x;
         this.sijaintiY = y;
         this.tuhoutumassa = false;
+        this.vauriopisteet = 8;
     }
-
 
     public int getX() {
         return this.sijaintiX;
     }
-
 
     public int getY() {
         return this.sijaintiY;
@@ -39,6 +39,11 @@ public class Seina{
         return this.tuhoutumassa;
     }
 
-
+    public void otaVauriota() {
+        this.vauriopisteet--;
+        if(this.vauriopisteet <= 0){
+            this.setTuhoutuu();
+        }
+    }
 
 }

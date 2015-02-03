@@ -14,20 +14,22 @@ import javax.swing.JFrame;
 public class PeliMoottori {
 
     public void start() throws InterruptedException {
-        final long OPTIMAL_TIME = 1000000000 / 60;
-        
         
         Peli peli = new Peli();
         //luodaan peli
         
         boolean pyorii = true;
+        long aika = System.nanoTime();
         while (pyorii) {
-            paivitaPeli(peli);
-            peli.paivitagrafiikka();
-            if (peli.tarkistaVoittaja()) {
-                pyorii = false;
+            if(System.nanoTime() - aika > 100000000){
+                paivitaPeli(peli);
+                pyorii = peli.tarkistaVoittaja();
+                aika = System.nanoTime();
+                peli.paivitagrafiikka();
+                Thread.sleep(1);
             }
-            Thread.sleep(100);
+            peli.paivitagrafiikka();
+            Thread.sleep(10);
         }
 
     }
@@ -39,7 +41,7 @@ public class PeliMoottori {
         peli.eteneRajahdykset();
         peli.paivitaSeinat();
     }
-//    peli.paivitagrafiikka();
+
     
     
     

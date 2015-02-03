@@ -103,39 +103,63 @@ public class Peli {
     public void poltaRuutu(int x, int y) {
         for (Seina seina : this.inventaario.getSeinat()) {
             if(seina.getX() == x && seina.getY() == y){
-                seina.setTuhoutuu();
+                seina.otaVauriota();
+            }
+        }
+        for (Pommi pommi : this.inventaario.getPommit()) {
+            if(pommi.getX() == x && pommi.getY() == y){
+                pommi.setTimer(0);
             }
         }
         for (int i = 1; i <= 2; i++) {
             Pelaaja p = this.inventaario.getPelaaja(i);
-//            if(Math.abs((p.getX()+15) -(50*x+25))< 40 && Math.abs((p.getY()+15) -(50*x+25)) < 40){
-//                p.havisi();
-//            }
-//            Kaava ei valmis
+            int pX = p.getX()+15;
+            int pY = p.getY()+15;
+            int rX = x*50+25;
+            int rY = y*50+25;
+            // pelaajan ja rajahdyksen keskipisteet
+            if(tsebysovEtaisyys(etaisyysItseisArvo(pX, rX), etaisyysItseisArvo(pY, rY)) < 40){
+                p.havisi();
+            }
         }
+    }
+    
+    public int tsebysovEtaisyys(int x, int y){
+        if(x > y){
+            return x;
+        }
+        return y;
+    }
+    
+    public int etaisyysItseisArvo(int x1, int x2){
+        if(x1 - x2 > 0){
+            return x1-x2;
+        }
+        return x2-x1;
     }
 
     public boolean tarkistaVoittaja() {
-//        Pelaaja p1 = this.inventaario.getPelaaja(1);
-//        Pelaaja p2 = this.inventaario.getPelaaja(2);
-//        
-//        if(p1.getHavinnyt() == true && p2.getHavinnyt() == true){
-//            System.out.println("Double Suicide.");
-//        } else if(p1.getHavinnyt() == true){
-//            System.out.println("Player two murdered his comrade.");
-//        } else if(p2.getHavinnyt() == true){
-//            System.out.println("Player one is the only one alive.");
-//        } else{
-//            return false;
-//        }
-        return true;
+        //AKA jatkuukopeli
+        Pelaaja p1 = this.inventaario.getPelaaja(1);
+        Pelaaja p2 = this.inventaario.getPelaaja(2);
+        
+        if(p1.getHavinnyt() == true && p2.getHavinnyt() == true){
+            System.out.println("Double Suicide.");
+        } else if(p1.getHavinnyt() == true){
+            System.out.println("Player two murdered his comrade.");
+        } else if(p2.getHavinnyt() == true){
+            System.out.println("Player one is the only one alive.");
+        } else{
+            return true;
+        }
+        return false;
     }
 
     public void paivitaSeinat() {
         ArrayList<Seina> uusiLista = new ArrayList<Seina>();
         for (Seina seina : this.inventaario.getSeinat()) {
             if (seina.getTuhoutuu()) {
-                this.inventaario.lisaaPowerUp(seina.getX(), seina.getY());
+                this.inventaario.luoUusiPU(seina.getX(), seina.getY());
             } else {
                 uusiLista.add(seina);
             }
@@ -229,8 +253,8 @@ public class Peli {
     }
 
     private void tarkistaPowerUp(Pelaaja p) {
-        int x = (p.getX()+12)/50;
-        int y = (p.getY()+12)/50;
+        int x = (p.getX()+15)/50;
+        int y = (p.getY()+15)/50;
         ArrayList<PowerUp> pUlista = new ArrayList<PowerUp>();
         for (PowerUp pU : this.inventaario.getPowerUp()) {
             if(pU.getX() == x && pU.getY() == y){

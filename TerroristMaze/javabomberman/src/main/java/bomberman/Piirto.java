@@ -106,8 +106,8 @@ public class Piirto extends JPanel {
             if (pU.getType() == PowerUpType.POMMEJA) {
                 g2D.setColor(Color.GREEN);
             }
-            g2D.fillOval(pU.getX() * 50 + 10, pU.getY() * 50 + 10, 30, 30);
-            g2D.fillOval(pU.getX() * 50 + 20, pU.getY() * 50 + 20, 30, 30);
+            g2D.fillOval(pU.getX() * 50 + 10, pU.getY() * 50 + 10, 20, 20);
+            g2D.fillOval(pU.getX() * 50 + 20, pU.getY() * 50 + 20, 20, 20);
         }
     }
 }
