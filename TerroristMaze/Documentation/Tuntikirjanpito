@@ -9,7 +9,11 @@ Koetin tehdä pullin gitillä ja sitten kun se vaati salasanaa (väärästä pw 
 Rakentelin grafiikoiden pohjaa seka kartan rakentamiseen tarvittavia osia; kovat ja pehmeät seinät. Yritin myös järjestää koodin loogisesti järjestykseen, mutta luulen epäonnistuneeni eeppisesti.
 Ongelmia mavenin kanssa, 2 ohjaajaa yrittivät auttaa. Laittoivat lopulta viestiä eteenpäin.
 
+29.1. klo 12:00 - 16:00
+Rajahdykset kuntoon.
 
+2.2. klo 16:00 - 19:00
+Seinien hajoaminen toimii, pelimoottorin päivitys tapahtuu oikein. Grafiikat päivittyvät jatkuvasti ja peli etenee vain tietyn ajan välein.
 
 
 
