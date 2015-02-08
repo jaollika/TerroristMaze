@@ -5,22 +5,29 @@
  */
 package bomberman;
 
+import bomberman.logiikka.Tulos;
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 /**
  *
  * @author jaollika@cs
  */
-public class PeliMoottori {
+public class PeliMoottori{
+    public Peli peli;
 
     public void start() throws InterruptedException {
-        
-        Peli peli = new Peli();
-        //luodaan peli
-        
-        boolean pyorii = true;
+        peli = new Peli();
+        Tulos pyorii = Tulos.NYD;
         long aika = System.nanoTime();
-        while (pyorii) {
+        while (pyorii == Tulos.NYD) {
             if(System.nanoTime() - aika > 100000000){
                 paivitaPeli(peli);
                 pyorii = peli.tarkistaVoittaja();
@@ -41,14 +48,5 @@ public class PeliMoottori {
         peli.eteneRajahdykset();
         peli.paivitaSeinat();
     }
-
-    
-    
-    
-    
-   
-    
-    
-    
     
 }

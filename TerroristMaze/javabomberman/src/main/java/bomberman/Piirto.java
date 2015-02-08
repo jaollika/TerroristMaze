@@ -110,6 +110,8 @@ public class Piirto extends JPanel {
             g2D.fillOval(pU.getX() * 50 + 20, pU.getY() * 50 + 20, 20, 20);
         }
     }
+
+ 
 }
 
 

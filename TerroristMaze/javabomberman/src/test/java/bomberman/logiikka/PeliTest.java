@@ -80,9 +80,9 @@ public class PeliTest {
     public void etenePommiMuuttaaTimeria() {
         this.peli.getInventaario().getPommit().add(new Pommi(1, 1, 1, 1));
         this.peli.etenePommit();
-        assertEquals(49, this.peli.getInventaario().getPommit().get(0).getTimer());
+        assertEquals(31, this.peli.getInventaario().getPommit().get(0).getTimer());
         this.peli.etenePommit();
-        assertEquals(48, this.peli.getInventaario().getPommit().get(0).getTimer());
+        assertEquals(30, this.peli.getInventaario().getPommit().get(0).getTimer());
     }
 
     @Test
@@ -211,7 +211,9 @@ public class PeliTest {
 
     @Test
     public void poltaRuutuMerkitseeSeinanTuhottavaksi() {
-        this.peli.poltaRuutu(3, 2);
+        for (int i = 0; i < 10; i++) {
+            this.peli.poltaRuutu(3, 2);
+        }
         for (Seina seina : this.peli.getInventaario().getSeinat()) {
             if (seina.getX() == 3 && seina.getY() == 2) {
                 assertTrue(seina.getTuhoutuu());
@@ -227,7 +229,7 @@ public class PeliTest {
         int i = this.peli.getInventaario().getSeinat().size();
         this.peli.poltaRuutu(3, 2);
         this.peli.paivitaSeinat();
-        assertEquals(i - 1, this.peli.getInventaario().getSeinat().size());
+        assertEquals(i, this.peli.getInventaario().getSeinat().size());
     }
 
     @Test
@@ -254,7 +256,9 @@ public class PeliTest {
     @Test
     public void eteneRajahdyksetTuhoaaRuudun(){
         this.peli.getInventaario().getRajahdykset().add(new Rajahdys(3,2));
-        this.peli.eteneRajahdykset();
+        for (int i = 0; i < 10; i++) {
+            this.peli.eteneRajahdykset();
+        }
         boolean test = false;
         for (Seina s : this.peli.getInventaario().getSeinat()) {
             if(s.getX() ==3 && s.getY() == 2){
@@ -266,6 +270,6 @@ public class PeliTest {
 
     @Test 
         public void tarkistaVoittajaPalauttaaTrue(){
-        assertTrue(this.peli.tarkistaVoittaja());
+        assertTrue(this.peli.tarkistaVoittaja()==Tulos.NYD);
     }
 }

@@ -7,6 +7,7 @@ package bomberman;
 
 import bomberman.Piirto;
 import bomberman.logiikka.SeinaType;
+import bomberman.logiikka.Tulos;
 import bomberman.object.Pelaaja;
 import bomberman.object.Pommi;
 import bomberman.object.EsineInventaario;
@@ -23,6 +24,7 @@ import javax.swing.JFrame;
 public class Peli {
     private EsineInventaario inventaario;
     private Piirto piirto;
+    private JFrame frame;
 
     public Peli() throws InterruptedException{
         this.inventaario = new EsineInventaario();
@@ -31,10 +33,13 @@ public class Peli {
         this.luoSeinat();
     }
     
+
+    
         public void piirraAlusta() throws InterruptedException{
-        JFrame frame = new JFrame("BOMBER");
+        this.frame = new JFrame("BOMBER");
         frame.add(this.piirto);
         //koko on 13*50 ja 13*50
+        frame.setLocation(250,200);
         frame.setSize(650, 650);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -138,21 +143,20 @@ public class Peli {
         return x2-x1;
     }
 
-    public boolean tarkistaVoittaja() {
+    public Tulos tarkistaVoittaja() {
         //AKA jatkuukopeli
         Pelaaja p1 = this.inventaario.getPelaaja(1);
         Pelaaja p2 = this.inventaario.getPelaaja(2);
         
         if(p1.getHavinnyt() == true && p2.getHavinnyt() == true){
-            System.out.println("Double Suicide.");
+            return Tulos.DRAW;
         } else if(p1.getHavinnyt() == true){
-            System.out.println("Player two murdered his comrade.");
+            return Tulos.BLUE;
         } else if(p2.getHavinnyt() == true){
-            System.out.println("Player one is the only one alive.");
+            return Tulos.GREEN;
         } else{
-            return true;
+            return Tulos.NYD;
         }
-        return false;
     }
 
     public void paivitaSeinat() {
@@ -265,5 +269,10 @@ public class Peli {
         }
         this.inventaario.setUusiPowerUpLista(pUlista);
     }
+
+    public void sammuta() {
+        frame.dispose();
+    }
+
 
 }
