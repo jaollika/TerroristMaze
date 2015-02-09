@@ -290,22 +290,6 @@ public class PeliTest {
     }
     
     @Test
-    public void tseEtaisyysTesti(){
-        assertEquals(2, peli.tsebysovEtaisyys(2, 1));
-        assertEquals(3, peli.tsebysovEtaisyys(2, 3));
-        assertEquals(2, peli.tsebysovEtaisyys(2, 2));
-    }
-    
-    @Test
-    public void itseisarvoTesti(){
-        assertTrue(peli.etaisyysItseisArvo(-3, -5) >= 0);
-        assertEquals(1, peli.etaisyysItseisArvo(2, 1));
-        assertEquals(3, peli.etaisyysItseisArvo(2, 5));
-        assertEquals(3, peli.etaisyysItseisArvo(-2, 1));
-        assertEquals(7, peli.etaisyysItseisArvo(2, -5));
-    }
-    
-    @Test
     public void tarkistaVoittajaPalauteOikein1(){
         peli.getInventaario().getPelaaja(1).havisi();
         assertEquals(Tulos.BLUE, this.peli.tarkistaVoittaja());
