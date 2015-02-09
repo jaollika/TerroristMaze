@@ -9,6 +9,7 @@ import bomberman.object.Pommi;
 import bomberman.object.Seina;
 import bomberman.object.Rajahdys;
 import bomberman.Peli;
+import bomberman.object.PowerUp;
 import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
@@ -269,7 +270,62 @@ public class PeliTest {
     }
 
     @Test 
-        public void tarkistaVoittajaPalauttaaTrue(){
-        assertTrue(this.peli.tarkistaVoittaja()==Tulos.NYD);
+    public void tarkistaVoittajaPalauttaaTrue() {
+        assertTrue(this.peli.tarkistaVoittaja() == Tulos.NYD);
     }
+
+    @Test
+    public void etenePelaajatAntaaPUnOikealle() {
+        this.peli.getInventaario().getPowerUp().add(new PowerUp(1,1, PowerUpType.POMMEJA));
+        this.peli.etenePelaajat();
+        assertEquals(2, this.peli.getInventaario().getPelaaja(1).getPommeja());
+    }
+
+        
+    @Test
+    public void poltaRuutuTappaaPelaajan(){
+        peli.poltaRuutu(1, 1);
+        assertTrue(this.peli.getInventaario().getPelaaja(1).getHavinnyt());
+        assertFalse(this.peli.getInventaario().getPelaaja(2).getHavinnyt());
+    }
+    
+    @Test
+    public void tseEtaisyysTesti(){
+        assertEquals(2, peli.tsebysovEtaisyys(2, 1));
+        assertEquals(3, peli.tsebysovEtaisyys(2, 3));
+        assertEquals(2, peli.tsebysovEtaisyys(2, 2));
+    }
+    
+    @Test
+    public void itseisarvoTesti(){
+        assertTrue(peli.etaisyysItseisArvo(-3, -5) >= 0);
+        assertEquals(1, peli.etaisyysItseisArvo(2, 1));
+        assertEquals(3, peli.etaisyysItseisArvo(2, 5));
+        assertEquals(3, peli.etaisyysItseisArvo(-2, 1));
+        assertEquals(7, peli.etaisyysItseisArvo(2, -5));
+    }
+    
+    @Test
+    public void tarkistaVoittajaPalauteOikein1(){
+        peli.getInventaario().getPelaaja(1).havisi();
+        assertEquals(Tulos.BLUE, this.peli.tarkistaVoittaja());
+    }
+    @Test
+    public void tarkistaVoittajaPalauteOikein2(){
+        peli.getInventaario().getPelaaja(2).havisi();
+        assertEquals(Tulos.GREEN, this.peli.tarkistaVoittaja());
+    }
+    @Test
+    public void tarkistaVoittajaPalauteOikein3(){
+        peli.getInventaario().getPelaaja(1).havisi();
+        peli.getInventaario().getPelaaja(2).havisi();
+        assertEquals(Tulos.DRAW, this.peli.tarkistaVoittaja());
+    }
+    @Test
+    public void tarkistaPowerUpTesti(){
+        this.peli.getInventaario().getPowerUp().add(new PowerUp(1,1,PowerUpType.VOIMA));
+        this.peli.tarkistaPowerUp(this.peli.getInventaario().getPelaaja(1));
+        assertEquals(2, this.peli.getInventaario().getPelaaja(1).getVoima());
+    }
+    
 }

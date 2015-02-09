@@ -40,9 +40,13 @@
                 <configuration>
                     <targetClasses>
                         <param>bomberman.*</param>
+                        <param>bomberman.logiikka.*</param>
+                        <param>bomberman.object.*</param>
                     </targetClasses>
                     <targetTests>
                         <param>bomberman.*</param>
+                        <param>bomberman.logiikka.*</param>
+                        <param>bomberman.object.*</param>
                     </targetTests>
                 </configuration>
             </plugin>

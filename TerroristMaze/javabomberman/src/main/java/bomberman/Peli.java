@@ -40,7 +40,7 @@ public class Peli {
         frame.add(this.piirto);
         //koko on 13*50 ja 13*50
         frame.setLocation(250,200);
-        frame.setSize(650, 650);
+        frame.setSize(665, 685);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -256,7 +256,7 @@ public class Peli {
         return true;
     }
 
-    private void tarkistaPowerUp(Pelaaja p) {
+    public void tarkistaPowerUp(Pelaaja p) {
         int x = (p.getX()+15)/50;
         int y = (p.getY()+15)/50;
         ArrayList<PowerUp> pUlista = new ArrayList<PowerUp>();
