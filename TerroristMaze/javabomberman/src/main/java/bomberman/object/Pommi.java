@@ -6,54 +6,58 @@
 package bomberman.object;
 
 /**
+ * Luokka kuvaa bomberman pelin Pommi-oliota. Pommi tuntee sen sijainnin,
+ * voiman, ajastimen ja omistajan.
  *
  * @author jaollika@cs
  */
-public class Pommi{
+public class Pommi {
+
     private int x;
     private int y;
     private int voima;
     private int timer;
     private int omistaja;
-    
-    public Pommi(int x, int y, int voima, int omistaja){
-        this.x = ((x+15)/50);
-        this.y = ((y+15)/50);
+
+    public Pommi(int x, int y, int voima, int omistaja) {
+        this.x = ((x + 15) / 50);
+        this.y = ((y + 15) / 50);
         // 13 x 13 ruudukko
         this.omistaja = omistaja;
         this.voima = voima;
         this.timer = 32;
     }
 
-    public int getVoima(){
+    public int getVoima() {
         return this.voima;
     }
-    
 
     public int getX() {
         return this.x;
     }
 
-
     public int getY() {
         return this.y;
     }
-    
-    public void etene(){
-        this.timer --;
+
+    /**
+     * Metodi vahentaa ajastimen arvoa yhdella.
+     */
+    public void etene() {
+        this.timer--;
     }
-    
-    public int getOmistaja(){
+
+    public int getOmistaja() {
         return this.omistaja;
     }
-    
-    public int getTimer(){
+
+    public int getTimer() {
         return this.timer;
     }
-    
-    public void setTimer(int i){
+
+    public void setTimer(int i) {
         //Test only
-       this.timer = i;
+        this.timer = i;
     }
-    
+
 }

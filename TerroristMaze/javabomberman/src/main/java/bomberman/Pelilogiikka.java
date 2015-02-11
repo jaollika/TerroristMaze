@@ -6,7 +6,7 @@
 package bomberman;
 
 import bomberman.Piirto;
-import bomberman.logiikka.SeinaType;
+import bomberman.logiikka.Ruutu;
 import bomberman.logiikka.Tulos;
 import bomberman.object.Pelaaja;
 import bomberman.object.Pommi;
@@ -18,16 +18,16 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 
 /**
- *
+ * Luokka hoitaa bomberman ohjelman logiikan
  * @author jaollika@cs
  */
-public class Peli {
+public class Pelilogiikka {
 
     private EsineInventaario inventaario;
     private Piirto piirto;
     private JFrame frame;
 
-    public Peli() throws InterruptedException {
+    public Pelilogiikka() throws InterruptedException {
         this.inventaario = new EsineInventaario();
         this.piirto = new Piirto(this.inventaario);
         this.piirraAlusta();
@@ -57,7 +57,7 @@ public class Peli {
         this.piirto.repaint();
     }
 
-    public Peli(EsineInventaario inventaario, Piirto piirto, JFrame frame) {
+    public Pelilogiikka(EsineInventaario inventaario, Piirto piirto, JFrame frame) {
         this.inventaario = inventaario;
         this.piirto = piirto;
         this.frame = frame;
@@ -65,7 +65,7 @@ public class Peli {
 
     /**
      * Metodi siirtaa EsineInventaario olioon sailottyja pelaajia
-     * tarkistaSijainninLaillisuus avulla, jonka jälkeen se tarkistaa saiko
+     * tarkistaSijainninLaillisuus avulla, jonka jÃ¤lkeen se tarkistaa saiko
      * pelaaja PowerUpia
      *
      * @see bomberman.Peli#luoPieniRuudukko()
@@ -73,7 +73,7 @@ public class Peli {
      * bomberman.logiikka.SeinaType[][])
      */
     public void etenePelaajat() {
-        SeinaType[][] ruudukko = luoPieniRuudukko();
+        Ruutu[][] ruudukko = luoPieniRuudukko();
         for (int i = 1; i <= 2; i++) {
             Pelaaja p = this.inventaario.getPelaaja(i);
             int nopeus = p.getNopeus();
@@ -157,9 +157,11 @@ public class Peli {
 
     /**
      * Metodi kutsuu samassa sijainnissa olevien seinien otaVauriota() -metodia
-     * sekä asettaa pommien ajastimen nollaan. Ruudussa olevien pelaajien
+     * sekÃ¤ asettaa pommien ajastimen nollaan. Ruudussa olevien pelaajien
      * havisi() metodia kutsutaan.
      *
+     * @param x x-koordinaatti
+     * @param y y-koordinaatti
      * @see bomberman.object.Rajahdys
      * @see bomberman.object.Seina#otaVauriota()
      * @see bomberman.object.Pommi
@@ -211,7 +213,7 @@ public class Peli {
      * @see bomberman.logiikka.Tulos
      * @see bomberman.object.Pelaaja#getHavinnyt()
      *
-     * @return palauttaa voittajan värin, tasapelin tai Not yet Decided
+     * @return palauttaa voittajan vÃ¤rin, tasapelin tai Not yet Decided
      */
     public Tulos tarkistaVoittaja() {
         //AKA jatkuukopeli
@@ -232,7 +234,7 @@ public class Peli {
     /**
      * Metodi tarkistaa seinat oliot ja tuleeko niiden tuhoutua. Metodi luo
      * uuden listan EsineInventaario olion seinat listan tilalle, jossa on
-     * vanhan listan seinat jotka eivät ole Tuhoutumassa tilassa.
+     * vanhan listan seinat jotka eivÃ¤t ole Tuhoutumassa tilassa.
      *
      * @see bomberman.object.Seina
      * @see bomberman.object.EsineInventaario
@@ -250,7 +252,7 @@ public class Peli {
     }
 
     public EsineInventaario getInventaario() {
-        //vain testikäyttöön
+        //vain testikÃ¤yttÃ¶Ã¶n
         return this.inventaario;
     }
 
@@ -282,28 +284,28 @@ public class Peli {
      * Metodia rakentaa pohjan ja EsineInventaarion Seina-listan avulla ruudukon
      * jota kaytetaan javabomberman liikkumisen pohjana
      *
-     * @see bomberman.logiikka.SeinaType
+     * @see bomberman.logiikka.Ruutu
      * @see bomberman.Peli#etenePelaajat()
      *
      * @return pelilaudan rakenne 13x13 ruudukossa
      */
-    public SeinaType[][] luoPieniRuudukko() {
-        // 0 = vapaa, 1 = kiveä, 2 = mutaseina
-        SeinaType[][] vapaana = new SeinaType[13][13];
+    public Ruutu[][] luoPieniRuudukko() {
+        // 0 = vapaa, 1 = kiveÃ¤, 2 = mutaseina
+        Ruutu[][] vapaana = new Ruutu[13][13];
         for (int i = 0; i < 13; i++) {
             for (int j = 0; j < 13; j++) {
                 if (i == 0 || i == 12 || j == 0 || j == 12) {
-                    vapaana[i][j] = SeinaType.KIVISEINA;
+                    vapaana[i][j] = Ruutu.KIVISEINA;
                 } else if (i % 2 == 0 && j % 2 == 0) {
-                    vapaana[i][j] = SeinaType.KIVISEINA;
+                    vapaana[i][j] = Ruutu.KIVISEINA;
                 } else {
-                    vapaana[i][j] = SeinaType.VAPAA;
+                    vapaana[i][j] = Ruutu.VAPAA;
                 }
             }
         }
 
         for (Seina seina : this.inventaario.getSeinat()) {
-            vapaana[seina.getX()][seina.getY()] = SeinaType.MUTASEINA;
+            vapaana[seina.getX()][seina.getY()] = Ruutu.MUTASEINA;
         }
         return vapaana;
     }
@@ -314,14 +316,14 @@ public class Peli {
      * luoYksiRajahdysSuunta -Metodia nelja kertaa, kerran jokaista ilmansuuntaa
      * kohti.
      *
-     * @param int x -koordinaatti
-     * @param int y -koordinaatti
+     * @param x x -koordinaatti
+     * @param y y -koordinaatti
      * @param voima Rajahdyksen pituus
      *
      * @see bomberman.object.Rajahdys
      */
     public void luoRajahdykset(int x, int y, int voima) {
-        SeinaType[][] ruudukko = luoPieniRuudukko();
+        Ruutu[][] ruudukko = luoPieniRuudukko();
         this.inventaario.luoRajahdys(x, y);
         luoYksiRajahdysSuunta(1, 0, x, y, voima, ruudukko);
         luoYksiRajahdysSuunta(-1, 0, x, y, voima, ruudukko);
@@ -333,22 +335,22 @@ public class Peli {
      * Metodi luo uusia Rajahdys-olioita. Annetun pelitilanteen mukaan uusien
      * rajahdysten luonti saataa pysahtya. Metodi toimii iteratiivisesti.
      *
-     * @param int suunta x -akselilla
-     * @param int suunta y -akselilla
-     * @param int x -koordinaatti
-     * @param int y -koordinaatti
+     * @param dx suunta x -akselilla
+     * @param dy suunta y -akselilla
+     * @param x x -koordinaatti
+     * @param y y -koordinaatti
      * @param voima Rajahdyksen pituus
-     * @param SeinaType annettu pelitilanne
+     * @param ruudukko annettu pelitilanne
      *
      * @see bomberman.Peli#luoRajahdykset(int, int, int)
      */
-    public void luoYksiRajahdysSuunta(int dx, int dy, int x, int y, int voima, SeinaType[][] ruudukko) {
+    public void luoYksiRajahdysSuunta(int dx, int dy, int x, int y, int voima, Ruutu[][] ruudukko) {
         while (voima > 0) {
             x = x + dx;
             y = y + dy;
-            if (ruudukko[x][y] != SeinaType.KIVISEINA) {
+            if (ruudukko[x][y] != Ruutu.KIVISEINA) {
                 this.inventaario.luoRajahdys(x, y);
-                if (ruudukko[x][y] == SeinaType.MUTASEINA) {
+                if (ruudukko[x][y] == Ruutu.MUTASEINA) {
                     voima = 0;
                 }
             } else {
@@ -363,25 +365,25 @@ public class Peli {
      * oltavaksi PieniRuudukko -metodin tekeman pelitilaan pohjalta. Metodi ei
      * ota huomioon tilannetta jossa pohjaa on muutettu!
      *
-     * @param int x-koordinaatti [0, 650]
-     * @param int y-koordinaatti [0, 650]
-     * @param SeinaType
+     * @param dX x-koordinaatti [0, 650]
+     * @param dY y-koordinaatti [0, 650]
+     * @param ruudukko annettu pelitilanne
      *
      * @see bomberman.Peli#etenePelaajat()
      * @see bomberman.Peli#luoPieniRuudukko()
      *
      * @return palauttaa voiko sijainnissa olla Pelaaja-oliota
      */
-    public boolean tarkistaSijainninLaillisuus(int dX, int dY, SeinaType[][] ruudukko) {
+    public boolean tarkistaSijainninLaillisuus(int dX, int dY, Ruutu[][] ruudukko) {
 
-        //haetaan ruudut 13x13 ruukukossa jossa on seinää.
+        //haetaan ruudut 13x13 ruukukossa jossa on seinÃ¤Ã¤.
         int x = dX / 50;
         int y = dY / 50;
-        if (ruudukko[x][y] != SeinaType.VAPAA) {
+        if (ruudukko[x][y] != Ruutu.VAPAA) {
             return false;
-        } else if ((dX % 50) > 20 && ruudukko[x + 1][y] != SeinaType.VAPAA) {
+        } else if ((dX % 50) > 20 && ruudukko[x + 1][y] != Ruutu.VAPAA) {
             return false;
-        } else if ((dY % 50) > 20 && ruudukko[x][y + 1] != SeinaType.VAPAA) {
+        } else if ((dY % 50) > 20 && ruudukko[x][y + 1] != Ruutu.VAPAA) {
             return false;
         } else if ((dX % 50) > 20 && (dY % 50) > 20) {
             return false;
@@ -395,7 +397,7 @@ public class Peli {
      * pelaajan keraaPowerUp(PowerUpType) metodia. Metodi myos korvaa
      * EsineInventaario olion PowerUpLista n paivitetylla versiolla.
      *
-     * @param Pelaaja pelaaja-olio
+     * @param p pelaaja-olio
      *
      * @see bomberman.object.Pelaaja#keraaPowerUp(bomberman.logiikka.PowerUpType) 
      * @see bomberman.object.EsineInventaario#setUusiPowerUpLista(java.util.ArrayList) 

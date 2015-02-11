@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- *
+ * Luokka taltioi kaikki peliin liittyvat oliot
  * @author jaollika@cs
  */
 public class EsineInventaario {
@@ -21,6 +21,10 @@ public class EsineInventaario {
     private Pelaaja pelaaja1;
     private Pelaaja pelaaja2;
 
+    /**
+     * Luo esineinventaario olion ja sen sisaltamat listat seka pelaaja pelin
+     * kayttamat pelaaja oliot.
+     */
     public EsineInventaario() {
         this.seinaLista = new ArrayList<Seina>();
         this.pommiLista = new ArrayList<Pommi>();
@@ -50,6 +54,13 @@ public class EsineInventaario {
         return this.pommiLista;
     }
     
+    /**
+     * Metodi luo peliin uuden pommi-olion
+     * @param x koordinaatti
+     * @param y koordinaatti
+     * @param voima pommin voimakkuus
+     * @param omistaja pommin omistaja
+     */
     public void lisaaPommi(int x, int y, int voima, int omistaja){
         this.pommiLista.add(new Pommi(x, y, voima, omistaja));
     }
@@ -58,6 +69,11 @@ public class EsineInventaario {
         this.pommiLista = uusiPommilista;
     }
 
+    /**
+     * Metodi luo uuden rajahdyksen peliin
+     * @param x koordinaatti
+     * @param y koordinaatti
+     */
     public void luoRajahdys(int x, int y) {
         this.rajahdysLista.add(new Rajahdys(x, y));
     }
@@ -78,6 +94,11 @@ public class EsineInventaario {
         return this.powerUpLista;
     }
 
+    /**
+     * Metodi luo uuden satunnaisen powerUpin peliin
+     * @param x
+     * @param y
+     */
     public void lisaaPowerUp(int x, int y) {
         this.powerUpLista.add(new PowerUp(x, y));
     }
@@ -86,6 +107,11 @@ public class EsineInventaario {
         this.powerUpLista = pUlista;
     }
 
+    /**
+     * Metodi luo 40% varmuudella uuden powerUpin peliin
+     * @param x
+     * @param y
+     */
     public void luoUusiPU(int x, int y) {
         Random r = new Random();
         if(r.nextInt(10) < 4){

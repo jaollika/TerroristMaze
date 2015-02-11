@@ -17,14 +17,22 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
- *
+ * Luokka huolehtii että peli etenee askel askeleelta oikein
  * @author jaollika@cs
  */
 public class PeliMoottori{
-    public Peli peli;
 
+    /**
+     * PeliMoottorin kayttama peli-olio
+     */
+    public Pelilogiikka peli;
+
+    /**
+     * Metodi aloittaa bomberman pelin pyörityksen
+     * @throws InterruptedException
+     */
     public void start() throws InterruptedException {
-        peli = new Peli();
+        peli = new Pelilogiikka();
         Tulos pyorii = Tulos.NYD;
         long aika = System.nanoTime();
         while (pyorii == Tulos.NYD) {
@@ -41,7 +49,12 @@ public class PeliMoottori{
 
     }
 
-    public void paivitaPeli(Peli peli) {
+    /**
+     * Metodi paivittaa jarjestyksessa pelilogiikan osat
+     *
+     * @param peli
+     */
+    public void paivitaPeli(Pelilogiikka peli) {
         peli.etenePelaajat();
         peli.jataPommit();
         peli.etenePommit();

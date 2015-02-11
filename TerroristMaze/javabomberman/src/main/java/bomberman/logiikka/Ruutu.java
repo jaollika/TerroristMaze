@@ -6,9 +6,9 @@
 package bomberman.logiikka;
 
 /**
- *
+ * Luokka maarittelee peliruutujen tyypit
  * @author -
  */
-public enum SeinaType {
-    VAPAA, MUTASEINA, KIVISEINA
+public enum Ruutu {
+    VAPAA, MUTASEINA, KIVISEINA, POMMI
 }

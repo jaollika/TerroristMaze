@@ -6,9 +6,14 @@
 package bomberman.logiikka;
 
 /**
- *
+ * Luokka maarittelee powerup tyypit
  * @author -
  */
 public enum PowerUpType {
-    VOIMA, NOPEUS, POMMEJA
+
+    VOIMA,
+
+    NOPEUS,
+
+    POMMEJA
 }

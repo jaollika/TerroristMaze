@@ -9,43 +9,59 @@ import bomberman.logiikka.PowerUpType;
 import java.util.Random;
 
 /**
+ * Luokka kuvaa pelissa kaytettavaa PowerUp oliota.
  *
  * @author -
  */
 public class PowerUp {
+
     private PowerUpType tyyppi;
     private int x;
     private int y;
-    
-    public PowerUp(int x, int y, PowerUpType tyyppi){
+
+    /**
+     * Metodi luo uuden tietylla PowerUpType arvolla varustetun PowerUp olion.
+     *
+     * @param x koordinaatti
+     * @param y koordinaatti
+     * @param tyyppi PowerUpin tyyppi
+     */
+    public PowerUp(int x, int y, PowerUpType tyyppi) {
         this.x = x;
         this.y = y;
         this.tyyppi = tyyppi;
     }
-    
-    public PowerUp(int x, int y){
+
+    /**
+     * Metodi luo uuden satunnaisella PowerUpType arvolla varustetun PowerUp
+     * olion.
+     *
+     * @param x
+     * @param y
+     */
+    public PowerUp(int x, int y) {
         this.x = x;
         this.y = y;
         Random random = new Random();
         int i = random.nextInt(9);
-        if(i < 4){
+        if (i < 4) {
             this.tyyppi = PowerUpType.VOIMA;
-        } else if(i < 7){
+        } else if (i < 7) {
             this.tyyppi = PowerUpType.NOPEUS;
-        } else{
+        } else {
             this.tyyppi = PowerUpType.POMMEJA;
         }
     }
-    
-    public int getX(){
+
+    public int getX() {
         return this.x;
     }
-    
-    public int getY(){
+
+    public int getY() {
         return this.y;
     }
-    
-    public PowerUpType getType(){
+
+    public PowerUpType getType() {
         return this.tyyppi;
     }
 }

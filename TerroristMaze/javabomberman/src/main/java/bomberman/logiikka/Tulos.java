@@ -6,7 +6,7 @@
 package bomberman.logiikka;
 
 /**
- *
+ * Maarittelee pelin tuloksen
  * @author -
  */
 public enum Tulos {

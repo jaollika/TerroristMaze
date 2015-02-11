@@ -8,7 +8,7 @@ package bomberman.logiikka;
 import bomberman.object.Pommi;
 import bomberman.object.Seina;
 import bomberman.object.Rajahdys;
-import bomberman.Peli;
+import bomberman.Pelilogiikka;
 import bomberman.object.PowerUp;
 import java.util.ArrayList;
 import org.junit.Before;
@@ -21,14 +21,14 @@ import static org.junit.Assert.*;
  */
 public class PeliTest {
 
-    private Peli peli;
+    private Pelilogiikka peli;
 
     public PeliTest() {
     }
 
     @Before
     public void setUp() throws InterruptedException {
-        this.peli = new Peli();
+        this.peli = new Pelilogiikka();
     }
 
     @Test
@@ -118,25 +118,25 @@ public class PeliTest {
 
     @Test
     public void luoPieniRuudukkoOnOikeanKokoinen() {
-        SeinaType[][] r = this.peli.luoPieniRuudukko();
+        Ruutu[][] r = this.peli.luoPieniRuudukko();
         assertEquals(13, r.length);
         assertEquals(13, r[0].length);
     }
 
     @Test
     public void luoPieniRuudukkoSisaltaaKaikkia() {
-        SeinaType[][] r = this.peli.luoPieniRuudukko();
+        Ruutu[][] r = this.peli.luoPieniRuudukko();
         boolean sis0 = false;
         boolean sis1 = false;
         boolean sis2 = false;
         boolean sisEiMuuta = true;
-        for (SeinaType[] r1 : r) {
-            for (SeinaType s : r1) {
-                if (s == SeinaType.VAPAA) {
+        for (Ruutu[] r1 : r) {
+            for (Ruutu s : r1) {
+                if (s == Ruutu.VAPAA) {
                     sis0 = true;
-                } else if (s == SeinaType.MUTASEINA) {
+                } else if (s == Ruutu.MUTASEINA) {
                     sis1 = true;
-                } else if (s == SeinaType.KIVISEINA) {
+                } else if (s == Ruutu.KIVISEINA) {
                     sis2 = true;
                 } else {
                     sisEiMuuta = false;
@@ -151,7 +151,7 @@ public class PeliTest {
 
     @Test
     public void tarkistaSijainninLaillisuusTesti1() {
-        SeinaType[][] r = this.peli.luoPieniRuudukko();
+        Ruutu[][] r = this.peli.luoPieniRuudukko();
         assertFalse(this.peli.tarkistaSijainninLaillisuus(50, 49, r));
         assertFalse(this.peli.tarkistaSijainninLaillisuus(171, 171, r));
         assertFalse(this.peli.tarkistaSijainninLaillisuus(170, 171, r));
@@ -198,14 +198,14 @@ public class PeliTest {
 
     @Test
     public void luoYksiRajahdysSuuntaMeneeOikeaanSuuntaanX() {
-        SeinaType[][] r = this.peli.luoPieniRuudukko();
+        Ruutu[][] r = this.peli.luoPieniRuudukko();
         this.peli.luoYksiRajahdysSuunta(1, 0, 1, 1, 3, r);
         assertEquals(3, this.peli.getInventaario().getRajahdykset().size());
     }
 
     @Test
     public void luoYksiRajahdysSuuntaMeneeOikeaanSuuntaanY() {
-        SeinaType[][] r = this.peli.luoPieniRuudukko();
+        Ruutu[][] r = this.peli.luoPieniRuudukko();
         this.peli.luoYksiRajahdysSuunta(0, 1, 1, 1, 3, r);
         assertEquals(3, this.peli.getInventaario().getRajahdykset().size());
     }

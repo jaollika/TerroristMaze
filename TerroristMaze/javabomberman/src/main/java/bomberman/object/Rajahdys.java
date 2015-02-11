@@ -5,6 +5,11 @@
  */
 package bomberman.object;
 
+/**
+ * Luokka kuvaa Rajahdys oliota.
+ *
+ * @author jaollika@cs
+ */
 public class Rajahdys{
     private int sijaintiX;
     private int sijaintiY;
@@ -25,7 +30,13 @@ public class Rajahdys{
     public int getY() {
         return this.sijaintiY;
     }
-    
+
+    /**
+     * Metodi laskee Rajahdys luokan ajastinta ja palauttaa true arvo jos arvo
+     * on nolla tai alle.
+     *
+     * @return saavuttaako ajastin 0-arvon
+     */
     public boolean etene(){
         this.timer = this.timer-1;
         return this.timer <= 0;

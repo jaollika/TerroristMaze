@@ -6,10 +6,11 @@
 package bomberman.object;
 
 /**
+ * Luokka kuvaa Seina oliota
  *
  * @author jaollika@cs
  */
-public class Seina{
+public class Seina {
 
     private int sijaintiX;
     private int sijaintiY;
@@ -39,9 +40,13 @@ public class Seina{
         return this.tuhoutumassa;
     }
 
+    /**
+     * Metodi vahentaa Seina olion vauriopisteet arvoa ja kutsuu setTuhoutuu()
+     * jos seinan vauriopisteet laskevat nollaan tai sen alle.
+     */
     public void otaVauriota() {
         this.vauriopisteet--;
-        if(this.vauriopisteet <= 0){
+        if (this.vauriopisteet <= 0) {
             this.setTuhoutuu();
         }
     }
