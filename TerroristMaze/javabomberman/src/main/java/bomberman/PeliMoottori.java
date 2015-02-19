@@ -46,6 +46,8 @@ public class PeliMoottori{
             peli.paivitagrafiikka();
             Thread.sleep(10);
         }
+        Thread.sleep(5000);
+        peli.sammuta(pyorii);
 
     }
 

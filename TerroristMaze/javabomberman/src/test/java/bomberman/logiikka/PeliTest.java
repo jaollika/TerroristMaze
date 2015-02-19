@@ -305,6 +305,7 @@ public class PeliTest {
         peli.getInventaario().getPelaaja(2).havisi();
         assertEquals(Tulos.DRAW, this.peli.tarkistaVoittaja());
     }
+    
     @Test
     public void tarkistaPowerUpTesti(){
         this.peli.getInventaario().getPowerUp().add(new PowerUp(1,1,PowerUpType.VOIMA));
@@ -312,4 +313,22 @@ public class PeliTest {
         assertEquals(2, this.peli.getInventaario().getPelaaja(1).getVoima());
     }
     
+    @Test
+    public void paivitaSeinatLuoSamanMaaranSeinia(){
+        this.peli.luoSeinat();
+        int i = this.peli.getInventaario().getSeinat().size();
+        this.peli.paivitaSeinat();
+        int j = this.peli.getInventaario().getSeinat().size();
+        assertEquals(i, j);
+    }
+    
+    @Test
+    public void paivitaSeinatPoistaaTuhoutuneet(){
+        this.peli.luoSeinat();
+        int i = this.peli.getInventaario().getSeinat().size();
+        this.peli.getInventaario().getSeinat().get(5).setTuhoutuu();
+        this.peli.paivitaSeinat();
+        int j = this.peli.getInventaario().getSeinat().size();
+        assertEquals(i, j+1);
+    }
 }

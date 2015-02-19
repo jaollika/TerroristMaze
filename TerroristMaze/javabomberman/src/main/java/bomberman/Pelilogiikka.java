@@ -19,6 +19,7 @@ import javax.swing.JFrame;
 
 /**
  * Luokka hoitaa bomberman ohjelman logiikan
+ *
  * @author jaollika@cs
  */
 public class Pelilogiikka {
@@ -68,8 +69,6 @@ public class Pelilogiikka {
      * tarkistaSijainninLaillisuus avulla, jonka jÃ¤lkeen se tarkistaa saiko
      * pelaaja PowerUpia
      *
-     * @see bomberman.Peli#luoPieniRuudukko()
-     * @see bomberman.Peli#tarkistaSijainninLaillisuus(int, int,
      * bomberman.logiikka.SeinaType[][])
      */
     public void etenePelaajat() {
@@ -94,11 +93,6 @@ public class Pelilogiikka {
      * Metodi tarkistaa jattaako EsineInventaarioon talletettu pelaaja olio
      * pommia. Jos jattaa, metodi kutsuu pelaajan .setEiJataPommia ja luo
      * EsineInventaario olioon uuden pommi olion.
-     *
-     * @see bomberman.object.Pelaaja#jattamassaPommin()
-     * @see bomberman.object.Pelaaja#jataPommi()
-     * @see bomberman.object.Pelaaja#getJattaakoPommin()
-     * @see bomberman.object.EsineInventaario()
      */
     public void jataPommit() {
         for (int i = 1; i <= 2; i++) {
@@ -115,9 +109,6 @@ public class Pelilogiikka {
      * jos pommin ajastin on 0. Pommeja joiden ajastin on 0 ei lisata listaan
      * joka korvaa vanhan pommilistan
      *
-     * @see bomberman.object.EsineInventaario#getPommit()
-     * @see bomberman.object.EsineInventaario()
-     * @see bomberman.object.Pommi()
      */
     public void etenePommit() {
         ArrayList<Pommi> uusiPommilista = new ArrayList<Pommi>();
@@ -138,10 +129,6 @@ public class Pelilogiikka {
      * rajahdykset uuteen listaan joka korvaa vanhan. Jokaisen rajahdyksen
      * kohdalla kutsutaan poltaRuutu(int, int) metodia.
      *
-     * @see bomberman.Peli#poltaRuutu(int, int)
-     * @see bomberman.object.EsineInventaario#getRajahdykset()
-     * @see bomberman.object.EsineInventaario()
-     * @see bomberman.object.Rajahdys()
      */
     public void eteneRajahdykset() {
         ArrayList<Rajahdys> uusiLista = new ArrayList<Rajahdys>();
@@ -162,23 +149,31 @@ public class Pelilogiikka {
      *
      * @param x x-koordinaatti
      * @param y y-koordinaatti
-     * @see bomberman.object.Rajahdys
-     * @see bomberman.object.Seina#otaVauriota()
-     * @see bomberman.object.Pommi
-     * @see bomberman.object.Pelaaja#havisi()
      *
      */
     public void poltaRuutu(int x, int y) {
+        poltaSeinat(x, y);
+        rajaytaPommiRuudusta(x, y);
+        tapaPelaajatRuudusta(x, y);
+    }
+
+    private void poltaSeinat(int x, int y) {
         for (Seina seina : this.inventaario.getSeinat()) {
             if (seina.getX() == x && seina.getY() == y) {
                 seina.otaVauriota();
             }
         }
+    }
+
+    private void rajaytaPommiRuudusta(int x, int y) {
         for (Pommi pommi : this.inventaario.getPommit()) {
             if (pommi.getX() == x && pommi.getY() == y) {
                 pommi.setTimer(0);
             }
         }
+    }
+
+    private void tapaPelaajatRuudusta(int x, int y) {
         for (int i = 1; i <= 2; i++) {
             Pelaaja p = this.inventaario.getPelaaja(i);
             int pX = p.getX() + 15;
@@ -210,8 +205,6 @@ public class Pelilogiikka {
      * Metodi tarkistaa pelaajien havinnyt muuttujan. Jos pelaaja on havinnyt
      * metodi palauttaa vastaavan Tulos.enum arvon.
      *
-     * @see bomberman.logiikka.Tulos
-     * @see bomberman.object.Pelaaja#getHavinnyt()
      *
      * @return palauttaa voittajan vÃ¤rin, tasapelin tai Not yet Decided
      */
@@ -236,8 +229,6 @@ public class Pelilogiikka {
      * uuden listan EsineInventaario olion seinat listan tilalle, jossa on
      * vanhan listan seinat jotka eivÃ¤t ole Tuhoutumassa tilassa.
      *
-     * @see bomberman.object.Seina
-     * @see bomberman.object.EsineInventaario
      */
     public void paivitaSeinat() {
         ArrayList<Seina> uusiLista = new ArrayList<Seina>();
@@ -260,8 +251,6 @@ public class Pelilogiikka {
      * Metodia kaytetaan peli olion luonnin yhteydessa varmistamaan peliin
      * liittyvien seinien olemassa olo ja sijainti.
      *
-     * @see bomberman.object.Seina
-     * @see bomberman.object.EsineInventaario
      */
     public void luoSeinat() {
         ArrayList<Seina> seinat = new ArrayList<Seina>();
@@ -283,9 +272,6 @@ public class Pelilogiikka {
     /**
      * Metodia rakentaa pohjan ja EsineInventaarion Seina-listan avulla ruudukon
      * jota kaytetaan javabomberman liikkumisen pohjana
-     *
-     * @see bomberman.logiikka.Ruutu
-     * @see bomberman.Peli#etenePelaajat()
      *
      * @return pelilaudan rakenne 13x13 ruudukossa
      */
@@ -342,7 +328,6 @@ public class Pelilogiikka {
      * @param voima Rajahdyksen pituus
      * @param ruudukko annettu pelitilanne
      *
-     * @see bomberman.Peli#luoRajahdykset(int, int, int)
      */
     public void luoYksiRajahdysSuunta(int dx, int dy, int x, int y, int voima, Ruutu[][] ruudukko) {
         while (voima > 0) {
@@ -369,8 +354,6 @@ public class Pelilogiikka {
      * @param dY y-koordinaatti [0, 650]
      * @param ruudukko annettu pelitilanne
      *
-     * @see bomberman.Peli#etenePelaajat()
-     * @see bomberman.Peli#luoPieniRuudukko()
      *
      * @return palauttaa voiko sijainnissa olla Pelaaja-oliota
      */
@@ -399,8 +382,6 @@ public class Pelilogiikka {
      *
      * @param p pelaaja-olio
      *
-     * @see bomberman.object.Pelaaja#keraaPowerUp(bomberman.logiikka.PowerUpType) 
-     * @see bomberman.object.EsineInventaario#setUusiPowerUpLista(java.util.ArrayList) 
      */
     public void tarkistaPowerUp(Pelaaja p) {
         int x = (p.getX() + 15) / 50;
@@ -416,4 +397,21 @@ public class Pelilogiikka {
         this.inventaario.setUusiPowerUpLista(pUlista);
     }
 
+    /**
+     * Metodi luo pelin paattymisen ilmoittavan ruudun johon tulee viesti tulos
+     * parametrin antaman arvon perusteella.
+     *
+     * @param tulos pelin lopputulos
+     *
+     */
+    public void sammuta(Tulos tulos) {
+        frame.setVisible(false);
+        this.frame = new JFrame("Game Over");
+        frame.setLocation(250, 200);
+        frame.setSize(315, 235);
+        Lopetus loppuG = new Lopetus(tulos);
+        frame.add(loppuG);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
 }
