@@ -1,6 +1,8 @@
 
 package bomberman;
 
+import logiikka.PeliMoottori;
+
 
 
 /**

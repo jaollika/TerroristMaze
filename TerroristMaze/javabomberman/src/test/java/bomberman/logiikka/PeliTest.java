@@ -5,10 +5,13 @@
  */
 package bomberman.logiikka;
 
+import bomberman.Enum.Tulos;
+import bomberman.Enum.Ruutu;
+import bomberman.Enum.PowerUpType;
 import bomberman.object.Pommi;
 import bomberman.object.Seina;
 import bomberman.object.Rajahdys;
-import bomberman.Pelilogiikka;
+import logiikka.Pelilogiikka;
 import bomberman.object.PowerUp;
 import java.util.ArrayList;
 import org.junit.Before;

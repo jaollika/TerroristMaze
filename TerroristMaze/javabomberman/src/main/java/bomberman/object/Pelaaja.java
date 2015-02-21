@@ -5,7 +5,7 @@
  */
 package bomberman.object;
 
-import bomberman.logiikka.PowerUpType;
+import bomberman.Enum.PowerUpType;
 import java.awt.event.KeyEvent;
 import javax.swing.Action;
 
