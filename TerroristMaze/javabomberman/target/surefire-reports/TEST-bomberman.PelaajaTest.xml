@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="20" failures="0" name="bomberman.PelaajaTest" time="0.007" errors="0" skipped="0">
+<testsuite tests="20" failures="0" name="bomberman.PelaajaTest" time="0.002" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files (x86)\Java\jdk1.8.0_25\jre\bin"/>
@@ -61,24 +61,24 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="bomberman.PelaajaTest" name="getPommejaKaytossaOikein" time="0"/>
-  <testcase classname="bomberman.PelaajaTest" name="setEiJataPommiaOikein" time="0"/>
-  <testcase classname="bomberman.PelaajaTest" name="pelaajanSijaintiOikein" time="0"/>
-  <testcase classname="bomberman.PelaajaTest" name="lisaaVoimaaOikein" time="0"/>
-  <testcase classname="bomberman.PelaajaTest" name="pelaajaSiirtyyOikein" time="0"/>
-  <testcase classname="bomberman.PelaajaTest" name="getsetPommejaOikein" time="0"/>
   <testcase classname="bomberman.PelaajaTest" name="getXOikein" time="0"/>
-  <testcase classname="bomberman.PelaajaTest" name="getVoimaOikein" time="0"/>
-  <testcase classname="bomberman.PelaajaTest" name="setNopeusXOikein" time="0"/>
-  <testcase classname="bomberman.PelaajaTest" name="jataPommiOikein" time="0"/>
-  <testcase classname="bomberman.PelaajaTest" name="setNopeusYOikein" time="0"/>
-  <testcase classname="bomberman.PelaajaTest" name="getYOikein" time="0"/>
-  <testcase classname="bomberman.PelaajaTest" name="getNopeusOikein" time="0"/>
   <testcase classname="bomberman.PelaajaTest" name="getNopeusYOikein" time="0"/>
-  <testcase classname="bomberman.PelaajaTest" name="eteneOikein" time="0"/>
   <testcase classname="bomberman.PelaajaTest" name="getNopeusXOikein" time="0"/>
+  <testcase classname="bomberman.PelaajaTest" name="getNopeusOikein" time="0"/>
+  <testcase classname="bomberman.PelaajaTest" name="setNopeusXOikein" time="0"/>
+  <testcase classname="bomberman.PelaajaTest" name="getYOikein" time="0"/>
+  <testcase classname="bomberman.PelaajaTest" name="setNopeusYOikein" time="0"/>
+  <testcase classname="bomberman.PelaajaTest" name="jataPommiOikein" time="0"/>
+  <testcase classname="bomberman.PelaajaTest" name="eteneOikein" time="0"/>
   <testcase classname="bomberman.PelaajaTest" name="setVoimaOikein" time="0"/>
+  <testcase classname="bomberman.PelaajaTest" name="getVoimaOikein" time="0"/>
   <testcase classname="bomberman.PelaajaTest" name="havisiPerkele" time="0"/>
-  <testcase classname="bomberman.PelaajaTest" name="lisaaKaytettavaPommiOikein" time="0"/>
+  <testcase classname="bomberman.PelaajaTest" name="pelaajaSiirtyyOikein" time="0"/>
+  <testcase classname="bomberman.PelaajaTest" name="pelaajanSijaintiOikein" time="0"/>
+  <testcase classname="bomberman.PelaajaTest" name="getPommejaKaytossaOikein" time="0"/>
+  <testcase classname="bomberman.PelaajaTest" name="lisaaVoimaaOikein" time="0"/>
+  <testcase classname="bomberman.PelaajaTest" name="setEiJataPommiaOikein" time="0"/>
+  <testcase classname="bomberman.PelaajaTest" name="getsetPommejaOikein" time="0"/>
   <testcase classname="bomberman.PelaajaTest" name="getJattaakoPomminBooleanOikein" time="0"/>
+  <testcase classname="bomberman.PelaajaTest" name="lisaaKaytettavaPommiOikein" time="0.001"/>
 </testsuite>

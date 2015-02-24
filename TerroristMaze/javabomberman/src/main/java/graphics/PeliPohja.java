@@ -12,8 +12,9 @@ import bomberman.Enum.Tulos;
 import javax.swing.JFrame;
 
 /**
+ * Luokka luo pohjan pelia varten.
  *
- * @author -
+ * @author Jaollika
  */
 public class PeliPohja {
     private JFrame frame;

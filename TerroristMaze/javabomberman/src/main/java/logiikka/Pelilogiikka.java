@@ -28,6 +28,11 @@ public class Pelilogiikka {
     private EsineInventaario inventaario;
     private PeliPohja pohja;
 
+    /**
+     * Metodi luo Pelilogiikka olion.
+     * 
+     * @throws InterruptedException
+     */
     public Pelilogiikka() throws InterruptedException {
         this.inventaario = new EsineInventaario();
         this.pohja = new PeliPohja(this.inventaario);

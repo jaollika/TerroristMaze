@@ -10,14 +10,21 @@ import java.awt.event.KeyEvent;
 import static java.awt.event.KeyEvent.*;
 import java.awt.event.KeyListener;
 
-
-
-
+/**
+ * Luokka luo Ohjaus olion, jolla pelia ohjataan.
+ * 
+ * @author jaollika
+ */
 public class Ohjaus implements KeyListener{
     private Pelaaja p1;
     private Pelaaja p2;
     
-
+    /**
+     * Metodi luo Ohjaus olion.
+     * 
+     * @param p1 pelaaja 1 
+     * @param p2 pelaaja 2
+     */
     public Ohjaus(Pelaaja p1, Pelaaja p2) {
         this.p1 = p1;
         this.p2 = p2;
@@ -58,7 +65,7 @@ public class Ohjaus implements KeyListener{
         if (key == KeyEvent.VK_Q) {
             p1.jataPommi();
         }
-        if (key == KeyEvent.VK_0) {
+        if (key == KeyEvent.VK_O) {
             p2.jataPommi();
         }
     }

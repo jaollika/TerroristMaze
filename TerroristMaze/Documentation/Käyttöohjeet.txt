@@ -1,0 +1,5 @@
+Bomberman
+Player 1 controls W A S D +Q
+player 2 controls Arrow keys +O
+
+Neljä ensimmäistä nappia ovat liikkumista varten, viides on pommin jättöä varten. Tuhoa seiniä ja yritä päästä vastustajan luo ja räjäytä hänet pommilla. Älä jää omiin räjähdyksiisi.
