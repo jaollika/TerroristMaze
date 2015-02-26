@@ -1,4 +1,4 @@
-13.1. klo 15:00 - 17:00
+﻿13.1. klo 15:00 - 17:00
 Tein github osuudet ja aloitin tyhjän maven tiedoston netbeanssissa. Opettelin linuxin terminaalin käyttöä githubin kanssa.
 Suunnittelin tarvitsemiani luokkia ja työkaluja ja piirsin luokkakaavion suttupaperille.
 
@@ -15,7 +15,20 @@ Rajahdykset kuntoon.
 2.2. klo 16:00 - 19:00
 Seinien hajoaminen toimii, pelimoottorin päivitys tapahtuu oikein. Grafiikat päivittyvät jatkuvasti ja peli etenee vain tietyn ajan välein.
 
+4.2. - 19.2. 
+Bittiavaruus söi tuntikirjanpidon päivitykset.
 
+19.2.
+Loin sekvenssikaaviot ja päivitin luokkakaaviot.
+
+21.2.
+Irrotin palautteen jälkeen logiikan piirto olioista parhaani mukaan. Logiikka luokka edelleen huolehtii ohjelman osien toisiinsa liittämisestä.
+
+24.2.
+Luokkakaavioiden ja sekvenssikaavioiden päivitys, lopullisten vaatimusten tarkistaminen ja lisääminen.
+
+25.2.
+Pommit estävät liikkumisen lävitseen. Palautteen mukainen piirto olion päivitys.
 
 
 

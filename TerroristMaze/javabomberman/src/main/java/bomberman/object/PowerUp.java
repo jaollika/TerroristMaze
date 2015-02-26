@@ -5,7 +5,7 @@
  */
 package bomberman.object;
 
-import bomberman.Enum.PowerUpType;
+import bomberman.Enum.PowerUpTyyppi;
 import java.util.Random;
 
 /**
@@ -15,7 +15,7 @@ import java.util.Random;
  */
 public class PowerUp {
 
-    private PowerUpType tyyppi;
+    private PowerUpTyyppi tyyppi;
     private int x;
     private int y;
 
@@ -26,7 +26,7 @@ public class PowerUp {
      * @param y koordinaatti
      * @param tyyppi PowerUpin tyyppi
      */
-    public PowerUp(int x, int y, PowerUpType tyyppi) {
+    public PowerUp(int x, int y, PowerUpTyyppi tyyppi) {
         this.x = x;
         this.y = y;
         this.tyyppi = tyyppi;
@@ -45,11 +45,11 @@ public class PowerUp {
         Random random = new Random();
         int i = random.nextInt(9);
         if (i < 4) {
-            this.tyyppi = PowerUpType.VOIMA;
+            this.tyyppi = PowerUpTyyppi.VOIMA;
         } else if (i < 7) {
-            this.tyyppi = PowerUpType.NOPEUS;
+            this.tyyppi = PowerUpTyyppi.NOPEUS;
         } else {
-            this.tyyppi = PowerUpType.POMMEJA;
+            this.tyyppi = PowerUpTyyppi.POMMEJA;
         }
     }
 
@@ -61,7 +61,7 @@ public class PowerUp {
         return this.y;
     }
 
-    public PowerUpType getType() {
+    public PowerUpTyyppi getType() {
         return this.tyyppi;
     }
 }

@@ -7,8 +7,8 @@ package bomberman.Enum;
 
 /**
  * Luokka maarittelee peliruutujen tyypit
- * @author -
+ * @author jaollika
  */
 public enum Ruutu {
-    VAPAA, MUTASEINA, KIVISEINA, POMMI
+    VAPAA, MUTASEINA, KIVISEINA, POMMI, PELAAJA
 }

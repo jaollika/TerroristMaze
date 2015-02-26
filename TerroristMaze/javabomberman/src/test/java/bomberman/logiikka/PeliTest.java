@@ -7,11 +7,10 @@ package bomberman.logiikka;
 
 import bomberman.Enum.Tulos;
 import bomberman.Enum.Ruutu;
-import bomberman.Enum.PowerUpType;
+import bomberman.Enum.PowerUpTyyppi;
 import bomberman.object.Pommi;
 import bomberman.object.Seina;
 import bomberman.object.Rajahdys;
-import logiikka.Pelilogiikka;
 import bomberman.object.PowerUp;
 import java.util.ArrayList;
 import org.junit.Before;
@@ -84,9 +83,9 @@ public class PeliTest {
     public void etenePommiMuuttaaTimeria() {
         this.peli.getInventaario().getPommit().add(new Pommi(1, 1, 1, 1));
         this.peli.etenePommit();
-        assertEquals(31, this.peli.getInventaario().getPommit().get(0).getTimer());
+        assertEquals(39, this.peli.getInventaario().getPommit().get(0).getTimer());
         this.peli.etenePommit();
-        assertEquals(30, this.peli.getInventaario().getPommit().get(0).getTimer());
+        assertEquals(38, this.peli.getInventaario().getPommit().get(0).getTimer());
     }
 
     @Test
@@ -132,6 +131,7 @@ public class PeliTest {
         boolean sis0 = false;
         boolean sis1 = false;
         boolean sis2 = false;
+        boolean sis3 = false;
         boolean sisEiMuuta = true;
         for (Ruutu[] r1 : r) {
             for (Ruutu s : r1) {
@@ -141,6 +141,8 @@ public class PeliTest {
                     sis1 = true;
                 } else if (s == Ruutu.KIVISEINA) {
                     sis2 = true;
+                } else if (s == Ruutu.PELAAJA) {
+                    sis3 = true;
                 } else {
                     sisEiMuuta = false;
                 }
@@ -149,30 +151,8 @@ public class PeliTest {
         assertTrue(sis0);
         assertTrue(sis1);
         assertTrue(sis2);
+        assertTrue(sis3);
         assertTrue(sisEiMuuta);
-    }
-
-    @Test
-    public void tarkistaSijainninLaillisuusTesti1() {
-        Ruutu[][] r = this.peli.luoPieniRuudukko();
-        assertFalse(this.peli.tarkistaSijainninLaillisuus(50, 49, r));
-        assertFalse(this.peli.tarkistaSijainninLaillisuus(171, 171, r));
-        assertFalse(this.peli.tarkistaSijainninLaillisuus(170, 171, r));
-        assertFalse(this.peli.tarkistaSijainninLaillisuus(171, 170, r));
-        assertTrue(this.peli.tarkistaSijainninLaillisuus(169, 169, r));
-        assertTrue(this.peli.tarkistaSijainninLaillisuus(150, 150, r));
-        assertTrue(this.peli.tarkistaSijainninLaillisuus(140, 70, r));
-        assertFalse(this.peli.tarkistaSijainninLaillisuus(140, 71, r));
-        assertTrue(this.peli.tarkistaSijainninLaillisuus(70, 140, r));
-        assertFalse(this.peli.tarkistaSijainninLaillisuus(71, 140, r));
-        assertFalse(this.peli.tarkistaSijainninLaillisuus(75, 75, r));
-
-        assertTrue(this.peli.tarkistaSijainninLaillisuus(75, 55, r));
-        assertTrue(this.peli.tarkistaSijainninLaillisuus(55, 55, r));
-        assertTrue(this.peli.tarkistaSijainninLaillisuus(55, 105, r));
-        assertFalse(this.peli.tarkistaSijainninLaillisuus(75, 105, r));
-
-        assertFalse(this.peli.tarkistaSijainninLaillisuus(55, 175, r));
     }
 
     @Test
@@ -279,7 +259,7 @@ public class PeliTest {
 
     @Test
     public void etenePelaajatAntaaPUnOikealle() {
-        this.peli.getInventaario().getPowerUp().add(new PowerUp(1,1, PowerUpType.POMMEJA));
+        this.peli.getInventaario().getPowerUp().add(new PowerUp(1,1, PowerUpTyyppi.POMMEJA));
         this.peli.etenePelaajat();
         assertEquals(2, this.peli.getInventaario().getPelaaja(1).getPommeja());
     }
@@ -294,24 +274,24 @@ public class PeliTest {
     
     @Test
     public void tarkistaVoittajaPalauteOikein1(){
-        peli.getInventaario().getPelaaja(1).havisi();
+        peli.getInventaario().getPelaaja(1).setHavisi();
         assertEquals(Tulos.BLUE, this.peli.tarkistaVoittaja());
     }
     @Test
     public void tarkistaVoittajaPalauteOikein2(){
-        peli.getInventaario().getPelaaja(2).havisi();
+        peli.getInventaario().getPelaaja(2).setHavisi();
         assertEquals(Tulos.GREEN, this.peli.tarkistaVoittaja());
     }
     @Test
     public void tarkistaVoittajaPalauteOikein3(){
-        peli.getInventaario().getPelaaja(1).havisi();
-        peli.getInventaario().getPelaaja(2).havisi();
+        peli.getInventaario().getPelaaja(1).setHavisi();
+        peli.getInventaario().getPelaaja(2).setHavisi();
         assertEquals(Tulos.DRAW, this.peli.tarkistaVoittaja());
     }
     
     @Test
     public void tarkistaPowerUpTesti(){
-        this.peli.getInventaario().getPowerUp().add(new PowerUp(1,1,PowerUpType.VOIMA));
+        this.peli.getInventaario().getPowerUp().add(new PowerUp(1,1,PowerUpTyyppi.VOIMA));
         this.peli.tarkistaPowerUp(this.peli.getInventaario().getPelaaja(1));
         assertEquals(2, this.peli.getInventaario().getPelaaja(1).getVoima());
     }

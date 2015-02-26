@@ -96,8 +96,8 @@ public class EsineInventaario {
 
     /**
      * Metodi luo uuden satunnaisen powerUpin peliin
-     * @param x
-     * @param y
+     * @param x koordinaatti
+     * @param y koordinaatti
      */
     public void lisaaPowerUp(int x, int y) {
         this.powerUpLista.add(new PowerUp(x, y));
@@ -109,8 +109,8 @@ public class EsineInventaario {
 
     /**
      * Metodi luo 40% varmuudella uuden powerUpin peliin
-     * @param x
-     * @param y
+     * @param x koordinaatti
+     * @param y koordinaatti
      */
     public void luoUusiPU(int x, int y) {
         Random r = new Random();

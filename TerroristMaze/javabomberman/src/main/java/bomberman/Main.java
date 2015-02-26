@@ -1,7 +1,7 @@
 
 package bomberman;
 
-import logiikka.PeliMoottori;
+import bomberman.logiikka.PeliMoottori;
 
 
 

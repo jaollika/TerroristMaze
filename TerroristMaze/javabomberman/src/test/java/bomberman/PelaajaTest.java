@@ -165,7 +165,7 @@ public class PelaajaTest {
     @Test
     public void havisiPerkele(){
         assertEquals(false, this.pelaaja.getHavinnyt());
-        this.pelaaja.havisi();
+        this.pelaaja.setHavisi();
         assertEquals(true, this.pelaaja.getHavinnyt());
     }
     

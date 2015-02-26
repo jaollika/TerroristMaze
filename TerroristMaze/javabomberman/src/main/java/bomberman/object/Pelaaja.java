@@ -5,7 +5,7 @@
  */
 package bomberman.object;
 
-import bomberman.Enum.PowerUpType;
+import bomberman.Enum.PowerUpTyyppi;
 import java.awt.event.KeyEvent;
 import javax.swing.Action;
 
@@ -162,22 +162,27 @@ public class Pelaaja {
         }
     }
 
-    public void havisi() {
+    public void setHavisi() {
         this.havinnyt = true;
     }
 
     public boolean getHavinnyt() {
         return this.havinnyt;
     }
-
-    public void keraaPowerUp(PowerUpType pU) {
-        if (pU == PowerUpType.NOPEUS) {
+    
+   /**
+     * Metodi kasvattaa pelaaja olion nopeus, voima tai pommeja arvoa riippuen parametrina annetusta PowerUpista.
+     * 
+     * @param pU kertoo powerUpin tyypin
+     */
+    public void keraaPowerUp(PowerUpTyyppi pU) {
+        if (pU == PowerUpTyyppi.NOPEUS) {
             this.nopeus = this.nopeus + 2;
         }
-        if (pU == PowerUpType.VOIMA) {
+        if (pU == PowerUpTyyppi.VOIMA) {
             this.voima = this.voima + 1;
         }
-        if (pU == PowerUpType.POMMEJA) {
+        if (pU == PowerUpTyyppi.POMMEJA) {
             this.pommeja = this.pommeja + 1;
             this.lisaaKaytettavaPommi();
         }

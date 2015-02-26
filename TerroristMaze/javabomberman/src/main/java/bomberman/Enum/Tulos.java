@@ -7,7 +7,7 @@ package bomberman.Enum;
 
 /**
  * Maarittelee pelin tuloksen
- * @author -
+ * @author jaollika
  */
 public enum Tulos {
     BLUE, GREEN, DRAW, NYD
